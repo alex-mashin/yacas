@@ -108,12 +108,12 @@ Plot2D'png(values_IsList, _options'hash) <--
 
 
 /// backend: use gnuplot to generate svg
-Plot2D'png(values_IsList, _options'hash) <--
+Plot2D'svg(values_IsList, _options'hash) <--
 [
   Local(item, dirBase, filename'list, control'file, svg'file);
   filename'list := Plot2D'datafile(values, options'hash);
   control'file := TmpFile();
-  png'file := If (options'hash["filename"] != Empty, options'hash["filename"], TmpFile());
+  svg'file := If (options'hash["filename"] != Empty, options'hash["filename"], TmpFile());
   ToFile(control'file)
   [
         WriteString("set output \"" : StringReplace("\\", "\\\\", svg'file) : "\"" : Nl());
